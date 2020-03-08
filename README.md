@@ -36,30 +36,6 @@ res/
   |- values-w820dp/
 ```
 
-## Git
-### Branch
-* `master` --> **PRODUCTION**
-* `beta` --> **BETA**
-* `development` --> **DEVELOPMENT BRANCH**
-
-**For any news features create a new branch from development**
-
-### Formatting commit messages
-```
-$ git commit -am "[... your message ...]"
-```
-*All commit message line will be cropped at 100 characters*
-
-**Prefixe all your commit messages by one of this type:**
-* `feat:`     A new feature
-* `fix:`      A bug fix
-* `docs:`     Documentation only changes
-* `style:`    Changes that do not affect the meaning of the code (white-space, formatting, etc)
-* `refactor:` A code change that neither fixes a bug or adds a feature
-* `perf:`     A code changes that improves performance
-* `test:`     Adding missing tests
-* `chore:`    Changes to the build process or auxiliary tools and libraries
-
 ## Libraries
 ### Core
 * Butter Knife --> [link](http://jakewharton.github.io/butterknife/)
@@ -94,8 +70,13 @@ Code style for Android --> [link](http://source.android.com/source/code-style.ht
 ## Android Version Support
 Android fragmentation analytics --> [Platform Versions](http://developer.android.com/about/dashboards/index.html#Platform)
 
-* Min API 16 --> Jelly Bean : 4.1.x
-* Max API 25 --> Nougat : 7.x.x
+* Min API 21 --> Android 5.0
+* Max API 29 --> Android 10.0
+* support AndroidX.
 
 ## Contributors
-[NodensN](https://github.com/NodensN)
+[penkzhou](https://github.com/penkzhou)
+
+
+## origin source
+[luoyiqi](https://github.com/luoyiqi/MediaPickerInstagram)
