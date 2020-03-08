@@ -11,14 +11,14 @@
         android:background="@color/white"
         android:elevation="4dp"/>
 
-    <android.support.design.widget.TabLayout
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/mMainTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#FFF"/>
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/mMainViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -2,15 +2,14 @@ package com.octopepper.mediapickerinstagram.components.gallery;
 
 import android.content.Context;
 import android.net.Uri;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.bumptech.glide.Glide;
 import com.octopepper.mediapickerinstagram.R;
 import com.octopepper.mediapickerinstagram.commons.modules.ReboundModule;
 import com.octopepper.mediapickerinstagram.commons.modules.ReboundModuleDelegate;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -40,13 +39,12 @@ public class MediaItemView extends RelativeLayout implements ReboundModuleDelega
     public void bind(File file) {
         mCurrentFile = file;
         mReboundModule.init(mMediaThumb);
-        Picasso.with(getContext())
+        Glide.with(getContext())
                 .load(Uri.fromFile(file))
-                .resize(350, 350)
+                .override(350, 350)
                 .centerCrop()
                 .placeholder(R.drawable.placeholder_media)
                 .error(R.drawable.placeholder_error_media)
-                .noFade()
                 .into(mMediaThumb);
     }
 

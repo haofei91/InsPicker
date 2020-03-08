@@ -22,11 +22,11 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.os.ParcelableCompat;
-import android.support.v4.os.ParcelableCompatCreatorCallbacks;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.os.ParcelableCompat;
+import androidx.core.os.ParcelableCompatCreatorCallbacks;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
@@ -35,7 +35,6 @@ import com.octopepper.mediapickerinstagram.commons.cameraview.api14.Camera1;
 import com.octopepper.mediapickerinstagram.commons.cameraview.api14.TextureViewPreview;
 import com.octopepper.mediapickerinstagram.commons.cameraview.api21.Camera2;
 import com.octopepper.mediapickerinstagram.commons.cameraview.api23.Camera2Api23;
-import com.octopepper.mediapickerinstagram.commons.cameraview.api9.SurfaceViewPreview;
 import com.octopepper.mediapickerinstagram.commons.cameraview.base.AspectRatio;
 import com.octopepper.mediapickerinstagram.commons.cameraview.base.CameraViewImpl;
 import com.octopepper.mediapickerinstagram.commons.cameraview.base.Constants;
@@ -100,12 +99,7 @@ public class CameraView extends FrameLayout {
     public CameraView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         // Internal setup
-        final PreviewImpl preview;
-        if (Build.VERSION.SDK_INT < 14) {
-            preview = new SurfaceViewPreview(context, this);
-        } else {
-            preview = new TextureViewPreview(context, this);
-        }
+        final PreviewImpl preview = new TextureViewPreview(context, this);
         mCallbacks = new CallbackBridge();
         if (Build.VERSION.SDK_INT < 21) {
             mImpl = new Camera1(mCallbacks, preview);

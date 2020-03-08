@@ -1,6 +1,6 @@
 package com.octopepper.mediapickerinstagram.components.editor;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class EditorActivity extends AppCompatActivity {
 

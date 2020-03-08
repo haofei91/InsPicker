@@ -4,10 +4,12 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.design.widget.AppBarLayout;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.google.android.material.appbar.AppBarLayout;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +19,6 @@ import com.octopepper.mediapickerinstagram.R;
 import com.octopepper.mediapickerinstagram.commons.models.Session;
 import com.octopepper.mediapickerinstagram.commons.modules.LoadMoreModule;
 import com.octopepper.mediapickerinstagram.commons.modules.LoadMoreModuleDelegate;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -158,11 +159,9 @@ public class GalleryPickerFragment extends Fragment implements GridAdapterListen
     }
 
     private void displayPreview(File file) {
-        Picasso.with(getContext())
+        Glide.with(getContext())
                 .load(Uri.fromFile(file))
-                .noFade()
-                .noPlaceholder()
-                .resize(PREVIEW_SIZE, PREVIEW_SIZE)
+                .override(PREVIEW_SIZE, PREVIEW_SIZE)
                 .centerCrop()
                 .into(mPreview);
     }
@@ -178,12 +177,6 @@ public class GalleryPickerFragment extends Fragment implements GridAdapterListen
         ButterKnife.bind(this, v);
         initViews();
         return v;
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Picasso.with(getContext()).cancelRequest(mPreview);
     }
 
     @Override
